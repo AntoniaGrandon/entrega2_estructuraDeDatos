@@ -1,2 +1,0 @@
-/* implementation of the class NodeRegion
- */
