@@ -1,7 +1,7 @@
 #ifndef LINKEDLIST_HPP_
 #define LINKEDLIST_HPP_
 
-#include "lLists/node.hpp"
+#include "node.hpp"
 
 class LinkedList {
 private:
@@ -12,6 +12,7 @@ public:
     LinkedList();
     ~LinkedList();
     void add_last(size_t data);
+    Node* get_head();
 };
 
 #endif

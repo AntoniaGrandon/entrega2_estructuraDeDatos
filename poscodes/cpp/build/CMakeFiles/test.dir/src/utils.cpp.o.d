@@ -1,8 +1,8 @@
 CMakeFiles/test.dir/src/utils.cpp.o: \
- /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/src/utils.cpp \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/src/utils.cpp \
  /usr/include/stdc-predef.h \
- /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/include/utils.hpp \
- /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/include/poscode.hpp \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include/utils.hpp \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include/poscode.hpp \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -111,9 +111,15 @@ CMakeFiles/test.dir/src/utils.cpp.o: \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/functional_hash.h \
  /usr/include/c++/13/bits/hash_bytes.h \
- /usr/include/c++/13/bits/basic_string.tcc /usr/include/c++/13/iostream \
- /usr/include/c++/13/ostream /usr/include/c++/13/ios \
- /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
+ /usr/include/c++/13/bits/basic_string.tcc \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include/linkedList.hpp \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include/node.hpp \
+ /usr/include/c++/13/cstddef \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include/poscode.hpp \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include/node.hpp \
+ /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
+ /usr/include/c++/13/ios /usr/include/c++/13/exception \
+ /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
  /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \
@@ -151,4 +157,8 @@ CMakeFiles/test.dir/src/utils.cpp.o: \
  /usr/include/c++/13/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc
+ /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/bits/stl_vector.h \
+ /usr/include/c++/13/bits/stl_bvector.h \
+ /usr/include/c++/13/bits/vector.tcc

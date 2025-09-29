@@ -1,4 +1,4 @@
-#include "lLists/node.hpp"
+#include "node.hpp"
 #include <iostream>
 
 Node::Node(): data(0), ptrNext(nullptr) {

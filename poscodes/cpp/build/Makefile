@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp
+CMAKE_SOURCE_DIR = /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/build
+CMAKE_BINARY_DIR = /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/build/CMakeFiles /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/build/CMakeFiles /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,54 @@ test: cmake_check_build_system
 test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
+
+src/linkedList.o: src/linkedList.cpp.o
+.PHONY : src/linkedList.o
+
+# target to build an object file
+src/linkedList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/linkedList.cpp.o
+.PHONY : src/linkedList.cpp.o
+
+src/linkedList.i: src/linkedList.cpp.i
+.PHONY : src/linkedList.i
+
+# target to preprocess a source file
+src/linkedList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/linkedList.cpp.i
+.PHONY : src/linkedList.cpp.i
+
+src/linkedList.s: src/linkedList.cpp.s
+.PHONY : src/linkedList.s
+
+# target to generate assembly for a file
+src/linkedList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/linkedList.cpp.s
+.PHONY : src/linkedList.cpp.s
+
+src/node.o: src/node.cpp.o
+.PHONY : src/node.o
+
+# target to build an object file
+src/node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/node.cpp.o
+.PHONY : src/node.cpp.o
+
+src/node.i: src/node.cpp.i
+.PHONY : src/node.i
+
+# target to preprocess a source file
+src/node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/node.cpp.i
+.PHONY : src/node.cpp.i
+
+src/node.s: src/node.cpp.s
+.PHONY : src/node.s
+
+# target to generate assembly for a file
+src/node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/node.cpp.s
+.PHONY : src/node.cpp.s
 
 src/poscode.o: src/poscode.cpp.o
 .PHONY : src/poscode.o
@@ -210,6 +258,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... src/linkedList.o"
+	@echo "... src/linkedList.i"
+	@echo "... src/linkedList.s"
+	@echo "... src/node.o"
+	@echo "... src/node.i"
+	@echo "... src/node.s"
 	@echo "... src/poscode.o"
 	@echo "... src/poscode.i"
 	@echo "... src/poscode.s"

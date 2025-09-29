@@ -1,4 +1,4 @@
-#include "lLists/linkedList.hpp"
+#include "linkedList.hpp"
 
 LinkedList::LinkedList() : head(nullptr), tail(nullptr) {
 }
@@ -23,3 +23,8 @@ void LinkedList::add_last(size_t data) {
         tail = node; 
     }
 }
+
+Node* LinkedList::get_head(){
+    return head;
+}
+

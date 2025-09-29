@@ -1,8 +1,8 @@
 CMakeFiles/test.dir/src/poscode.cpp.o: \
- /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/src/poscode.cpp \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/src/poscode.cpp \
  /usr/include/stdc-predef.h \
- /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/include/poscode.hpp \
- /home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/include/poscode.hpp \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include/poscode.hpp \
+ /home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include/poscode.hpp \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

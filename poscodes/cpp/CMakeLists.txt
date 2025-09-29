@@ -6,5 +6,5 @@ LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(test test.cpp src/utils.cpp src/poscode.cpp)
+add_executable(test test.cpp src/utils.cpp src/poscode.cpp src/linkedList.cpp src/node.cpp)
 target_include_directories(test PUBLIC ${PROJECT_SOURCE_DIR}/include)

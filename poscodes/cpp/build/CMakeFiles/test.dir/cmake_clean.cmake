@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/test.dir/src/linkedList.cpp.o"
+  "CMakeFiles/test.dir/src/linkedList.cpp.o.d"
+  "CMakeFiles/test.dir/src/node.cpp.o"
+  "CMakeFiles/test.dir/src/node.cpp.o.d"
   "CMakeFiles/test.dir/src/poscode.cpp.o"
   "CMakeFiles/test.dir/src/poscode.cpp.o.d"
   "CMakeFiles/test.dir/src/utils.cpp.o"

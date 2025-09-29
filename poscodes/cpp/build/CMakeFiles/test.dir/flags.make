@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/jmsaavedrar/Research/git/eda_cpp_full/poscodes/cpp/include
+CXX_INCLUDES = -I/home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/include
 
 CXX_FLAGS = -std=gnu++11
 

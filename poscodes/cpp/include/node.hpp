@@ -1,3 +1,5 @@
+#include <cstddef>
+
 #ifndef NODE_HPP_
 #define NODE_HPP_
 
