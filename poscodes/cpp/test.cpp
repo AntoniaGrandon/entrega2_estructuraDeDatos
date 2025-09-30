@@ -4,10 +4,11 @@
 #include <string>
 #include <vector>
 #include <chrono>
-#include <numeric> // Para std::accumulate
-#include <cmath>   // Para std::sqrt
+#include <numeric>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>  
 
-// Estructura para definir cada set de datos
 struct Dataset {
     std::string filename;
     size_t size;
@@ -37,7 +38,7 @@ void run_experiment(SortFunction sort_func, Poscode* original_data, size_t n, co
     std::cout << "\n--- Probando " << name << " ---" << std::endl;
     std::vector<double> timings;
 
-    for (int i = 0; i < 6; ++i) { // 1 corrida de calentamiento + 5 mediciones
+    for (int i = 0; i < 6; ++i) { 
         std::vector<Poscode> data_copy(original_data, original_data + n);
 
         auto start = std::chrono::high_resolution_clock::now();
@@ -46,15 +47,16 @@ void run_experiment(SortFunction sort_func, Poscode* original_data, size_t n, co
         
         std::chrono::duration<double, std::milli> duration = end - start;
         
-        if (i > 0) { // Descartamos la primera corrida (calentamiento)
+        if (i > 0) { 
             timings.push_back(duration.count());
         }
     }
     print_stats(timings);
 }
 
+//Correr los experimentos
 int main(int nargs, char** vargs) {
-    // Definimos los datasets que vamos a probar
+    srand(time(NULL));
     std::vector<Dataset> datasets = {
         {"/home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/codes_500K.txt", 500000},
         {"/home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/codes_1M.txt", 1000000},
@@ -69,15 +71,14 @@ int main(int nargs, char** vargs) {
         Poscode* original_data = readCodes(ds.filename, ds.size);
         if (!original_data) {
             std::cerr << "Error al cargar " << ds.filename << std::endl;
-            continue; // Saltar al siguiente dataset si hay un error
+            continue;
         }
 
-        // Corremos los 3 experimentos para este dataset
         run_experiment(radix_sort, original_data, ds.size, "RadixSort");
         run_experiment(quick_sort, original_data, ds.size, "QuickSort");
         run_experiment(merge_sort, original_data, ds.size, "MergeSort");
 
-        deleteCodes(original_data); // Liberamos la memoria del dataset actual
+        deleteCodes(original_data);
     }
 
     return 0;

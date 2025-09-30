@@ -2,128 +2,115 @@
 #include "linkedList.hpp"
 #include "poscode.hpp"
 #include "node.hpp"
-
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>  
 
-
-// --- Agrega estas funciones a utils.cpp ---
-
-// Función auxiliar para intercambiar dos elementos
+//a <=> b
 void swap(Poscode& a, Poscode& b) {
     Poscode temp = a;
     a = b;
     b = temp;
 }
 
-// Función de partición
-int partition(Poscode *A, int low, int high) {
-    Poscode pivot = A[high]; // Tomamos el último elemento como pivote
-    int i = (low - 1);
+//dividir aleatoriamente
+int split_qs(Poscode *A, int i, int j) {
+    int p = i + rand() % (j - i + 1);
 
-    for (int j = low; j <= high - 1; j++) {
-        // Comparamos los códigos postales como strings
-        if (A[j].getData() < pivot.getData()) {
+    while (i < j) {
+        while (i < p && A[i].getData() <= A[p].getData()) {
             i++;
-            swap(A[i], A[j]);
+        }
+
+        while (j > p && A[j].getData() >= A[p].getData()) {
+            j--;
+        }
+
+        swap(A[i], A[j]);
+
+        if (i == p) {
+            p = j;
+        } else if (j == p) {
+            p = i;
         }
     }
-    swap(A[i + 1], A[high]);
-    return (i + 1);
+    return p;
 }
 
-// Función recursiva de QuickSort
-void quick_sort_recursive(Poscode *A, int low, int high) {
-    if (low < high) {
-        int pi = partition(A, low, high);
-        quick_sort_recursive(A, low, pi - 1);
-        quick_sort_recursive(A, pi + 1, high);
+//función del quick_sort como el libro
+void quick_sort_recursivo(Poscode *A, int i, int j) {
+    if (i < j) {
+        int k = split_qs(A, i, j);
+        quick_sort_recursivo(A, i, k - 1);
+        quick_sort_recursivo(A, k + 1, j);
     }
 }
 
-// Esta es la función principal que debes rellenar
+//quick_sort para n datos 
 void quick_sort(Poscode *A, size_t n) {
-    if (n > 0) {
-        quick_sort_recursive(A, 0, n - 1);
+    if (n > 1) {
+        quicksort_recursivo(A, 0, n - 1);
     }
 }
 
+//ordena el subarreglo
+void merge(Poscode *A, int i, int j, int k) {
+    std::vector<Poscode> A_aux(j - i + 1);
+    int q = 0;
+    int p1 = i;
+    int p2 = k + 1;
 
-// --- Agrega estas funciones a utils.cpp ---
-
-// Función para combinar (merge) dos sub-arreglos ordenados
-void merge(Poscode *A, int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-
-    // Crear arreglos temporales
-    std::vector<Poscode> L(n1), R(n2);
-
-    // Copiar datos a los arreglos temporales L[] y R[]
-    for (int i = 0; i < n1; i++)
-        L[i] = A[left + i];
-    for (int j = 0; j < n2; j++)
-        R[j] = A[mid + 1 + j];
-
-    // Combinar los arreglos temporales de vuelta en A[left..right]
-    int i = 0; // Índice inicial del primer sub-arreglo
-    int j = 0; // Índice inicial del segundo sub-arreglo
-    int k = left; // Índice inicial del sub-arreglo combinado
-
-    while (i < n1 && j < n2) {
-        if (L[i].getData() <= R[j].getData()) {
-            A[k] = L[i];
-            i++;
+    while (p1 <= k && p2 <= j) {
+        if (A[p1].getData() <= A[p2].getData()) {
+            A_aux[q] = A[p1];
+            p1++;
         } else {
-            A[k] = R[j];
-            j++;
+            A_aux[q] = A[p2];
+            p2++;
         }
-        k++;
+        q++;
     }
 
-    // Copiar los elementos restantes de L[], si hay alguno
-    while (i < n1) {
-        A[k] = L[i];
-        i++;
-        k++;
+    while (p1 <= k) {
+        A_aux[q] = A[p1];
+        p1++;
+        q++;
     }
 
-    // Copiar los elementos restantes de R[], si hay alguno
-    while (j < n2) {
-        A[k] = R[j];
-        j++;
-        k++;
+    while (p2 <= j) {
+        A_aux[q] = A[p2];
+        p2++;
+        q++;
     }
-}
 
-// Función recursiva de MergeSort
-void merge_sort_recursive(Poscode *A, int left, int right) {
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-        merge_sort_recursive(A, left, mid);
-        merge_sort_recursive(A, mid + 1, right);
-        merge(A, left, mid, right);
+    for (size_t idx = 0; idx < A_aux.size(); ++idx) {
+        A[i + idx] = A_aux[idx];
     }
 }
 
-// Esta es la función principal que debes rellenar
+//función del merges_sort como el libro
+void merge_sort_recursivo(Poscode *A, int i, int j) {
+    if (i < j) {
+        int k = i + (j - i) / 2;
+        merge_sort_recursivo(A, i, k);
+        merge_sort_recursivo(A, k + 1, j);
+        merge(A, i, j, k);
+    }
+}
+
+//merge_sort para n datos
 void merge_sort(Poscode *A, size_t n) {
     if (n > 1) {
-        merge_sort_recursive(A, 0, n - 1);
+        mergesort_recursivo(A, 0, n - 1);
     }
 }
 
-
-//para ordenar los codigos vamos de derecha a izquierda
+//se ordena de derecha a izquierda el código
 void radix_sort(Poscode *A, size_t n){
-    // 1. Ordenar la segunda letra
     counting_sort(A, n, 5);
-
-    // 2. Ordenar la primera letra
     counting_sort(A, n, 4);
-
-    // 3. Ordenar los 4 dígitos, de derecha a izquierda
     counting_sort(A, n, 3);
     counting_sort(A, n, 2);
     counting_sort(A, n, 1);
@@ -158,6 +145,7 @@ void deleteCodes(Poscode *codes){
 }
 
 void counting_sort(Poscode *A, size_t n, int p){
+    //ver si es la columna es un número o letra
     int M;
     if (p >= 4) {
         M = 26;
@@ -166,10 +154,14 @@ void counting_sort(Poscode *A, size_t n, int p){
         M = 10;
     }
 
+    //node: arreglo de listas enlazadas de tamaño M
     LinkedList node[M];
 
+    //Recorremos todo el arreglo A
     for(int i = 0; i < n; i++){
+        //para cada elemento de A vemos la columna p
         char valor = A[i].getValue(p);
+        //convertir las letras en numeros
         int M_index;
         if (p >= 4) {
             M_index = valor - 'A';
@@ -177,23 +169,30 @@ void counting_sort(Poscode *A, size_t n, int p){
         else {
             M_index = valor - '0';
         }
+        //guardamos el indice del elemento de A
         if(M_index >= 0 && M_index < M){
             node[M_index].add_last(i);
         }
     }
 
+    //creamos un arreglo array
     std::vector<Poscode> array(n);;
     size_t posicion = 0;
+    //recorremos todo el arreglo de node 
     for(int i = 0; i < M; i++){
+        //recorremos los indices que contiene cada lista del arreglo node
         Node* node_ = node[i].get_head();
         while (node_ != nullptr){
+            //obtenemos el indice original del elemento
             size_t index = node_ -> getData();
+            //guarda en array el elemento en A en la posición index
             array[posicion] = A[index];
             posicion ++;
             node_ = node_ -> getNext();
         }
     }
 
+    //copiamos lo que hay en array en A
     for(int i = 0; i < n; i++){
         A[i] = array[i];
     }
