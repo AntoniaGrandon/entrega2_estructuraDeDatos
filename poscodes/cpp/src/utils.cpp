@@ -51,7 +51,7 @@ void quick_sort_recursivo(Poscode *A, int i, int j) {
 //quick_sort para n datos 
 void quick_sort(Poscode *A, size_t n) {
     if (n > 1) {
-        quicksort_recursivo(A, 0, n - 1);
+        quick_sort_recursivo(A, 0, n - 1);
     }
 }
 
@@ -103,7 +103,7 @@ void merge_sort_recursivo(Poscode *A, int i, int j) {
 //merge_sort para n datos
 void merge_sort(Poscode *A, size_t n) {
     if (n > 1) {
-        mergesort_recursivo(A, 0, n - 1);
+        merge_sort_recursivo(A, 0, n - 1);
     }
 }
 
