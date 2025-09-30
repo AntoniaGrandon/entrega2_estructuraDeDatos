@@ -1,3 +1,0 @@
-/home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/CMakeFiles/test.dir
-/home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/CMakeFiles/edit_cache.dir
-/home/anto/universidad/estructuraDeDatosYAlgoritmos/tarea2/entrega2_estructuraDeDatos/poscodes/cpp/CMakeFiles/rebuild_cache.dir
