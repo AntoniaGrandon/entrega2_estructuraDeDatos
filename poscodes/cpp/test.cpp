@@ -29,13 +29,13 @@ void print_stats(const std::vector<double>& times) {
     }
     double stdev = std::sqrt(sq_sum / times.size());
 
-    std::cout << "Avg: " << mean << " ms, Stdev: " << stdev << " ms" << std::endl;
+    std::cout << "Promedio: " << mean << " ms, Desviación estándar: " << stdev << " ms" << std::endl;
 }
 
 // Plantilla para correr un experimento con cualquier función de ordenamiento
 template<typename SortFunction>
 void run_experiment(SortFunction sort_func, Poscode* original_data, size_t n, const std::string& name) {
-    std::cout << "\n--- Probando " << name << " ---" << std::endl;
+    std::cout << "--- Probando " << name << " ---" << std::endl;
     std::vector<double> timings;
 
     for (int i = 0; i < 6; ++i) { 
@@ -64,8 +64,6 @@ int main(int nargs, char** vargs) {
     };
 
     for (const auto& ds : datasets) {
-        std::cout << "\n=================================================" << std::endl;
-        std::cout << "CARGANDO DATASET: " << ds.filename << " (" << ds.size << " elementos)" << std::endl;
         std::cout << "=================================================" << std::endl;
 
         Poscode* original_data = readCodes(ds.filename, ds.size);
