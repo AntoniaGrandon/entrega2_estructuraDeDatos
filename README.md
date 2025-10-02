@@ -1,4 +1,8 @@
-El flujo de compilación y ejecución es el siguiente:
+## Compilación y ejecución
+
+Para compilar y ejecutar el proyecto:
+
+```bash
 cd poscodes
 mkdir build && cd build
 cmake ..
